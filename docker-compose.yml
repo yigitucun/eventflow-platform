@@ -1,0 +1,12 @@
+
+services:
+  config-service:
+    build: ./config-service
+    container_name: config-service
+    ports:
+      - "8888:8888"
+    networks:
+      - microservices-net
+
+networks:
+  microservices-net:
