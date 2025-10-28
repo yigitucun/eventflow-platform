@@ -8,6 +8,20 @@ services:
     networks:
       - microservice-net
 
+    healthcheck:
+      test: ["CMD","curl","-f","http://localhost:8888/actuator/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+
+  discovery-service:
+    container_name: discovery-service
+    build: ./discovery-service
+    ports:
+      - "8761:8761"
+    networks:
+      - microservice-net
 
 networks:
   microservice-net:
