@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config-service
+  main:
+    banner-mode: off
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/yigitucun/config-repo.git
+          default-label: main
+
+server:
+  port: 8888
+logging:
+  level:
+    root: warn
