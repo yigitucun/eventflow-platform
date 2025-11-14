@@ -1,0 +1,58 @@
+
+services:
+  discovery-service:
+    container_name: discovery-service
+    build: ./discovery-service
+    ports:
+      - "8761:8761"
+    networks:
+      - microservice-net
+
+  config-service:
+    container_name: config-service
+    build: ./config-service
+    ports:
+      - "8888:8888"
+    healthcheck:
+      test: ["CMD","curl","-f","http://localhost:8888/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - microservice-net
+
+  gateway-service:
+    container_name: gateway-service
+    build: ./gateway-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      config-service:
+        condition: service_healthy
+    networks:
+      - microservice-net
+
+  user-service-db:
+    container_name: user-service-db
+    image: postgres
+    ports:
+      - "5433:5432"
+
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=user
+      - POSTGRES_PASSWORD=root
+
+    volumes:
+      - pgdata:/var/lib/postgresql
+
+    networks:
+      - microservice-net
+
+
+networks:
+  microservice-net:
+
+volumes:
+  pgdata:
