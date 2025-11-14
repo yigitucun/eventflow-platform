@@ -1,4 +1,4 @@
-package io.yigitucun.eventflow.config_service;
+package io.yigitucun.eventflow.config.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

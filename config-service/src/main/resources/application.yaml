@@ -1,3 +1,15 @@
 spring:
   application:
     name: config-service
+  main:
+    banner-mode: off
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/yigitucun/eventflow-config-repo.git
+server:
+  port: 8888
+logging:
+  level:
+    root: warn
