@@ -5,5 +5,5 @@ include(
     "shared-lib",
     "discovery-service",
     "gateway-service",
-    "user-service"
+    "user-services"
 )
