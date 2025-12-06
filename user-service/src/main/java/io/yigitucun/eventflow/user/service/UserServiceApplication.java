@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 		"io.yigitucun.eventflow.user.service",
 		"io.yigitucun.eventflow.exceptions",
 		"io.yigitucun.eventflow.advice",
-
 })
 public class UserServiceApplication {
 
