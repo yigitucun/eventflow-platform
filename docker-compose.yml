@@ -61,6 +61,25 @@ services:
     networks:
       - microservice-net
 
+  auth-service-db:
+    container_name: auth-service-db
+    image: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - microservice-net
+
+  auth-service:
+    build: ./auth-service
+    depends_on:
+      config-service:
+        condition: service_healthy
+    container_name: auth-service
+    ports:
+      - "8082:8082"
+    networks:
+      - microservice-net
+
 
 networks:
   microservice-net:
