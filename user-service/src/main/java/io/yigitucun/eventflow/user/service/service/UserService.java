@@ -1,6 +1,6 @@
 package io.yigitucun.eventflow.user.service.service;
 
-import io.yigitucun.eventflow.exceptions.GlobalException;
+import io.yigitucun.eventflow.exception.GlobalException;
 import io.yigitucun.eventflow.user.service.dto.User;
 import io.yigitucun.eventflow.user.service.dto.requests.CreateUserRequest;
 import io.yigitucun.eventflow.user.service.dto.responses.UserDetail;
