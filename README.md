@@ -4,7 +4,8 @@ Modern bir etkinlik yönetimi ve bilet satış platformu.
 
 ## 🏗️ Mimari
 
-![EventFlow Architecture](docs/architecture.png)
+<img width="945" height="507" alt="schema" src="https://github.com/user-attachments/assets/2d0d6627-d337-4c59-aafc-2526e235a89b" />
+
 
 ### Servis Haritası
 
