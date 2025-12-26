@@ -139,11 +139,5 @@ Event Service ve Ticket Service arasında RabbitMQ ile asenkron iletişim:
 ./gradlew :event-service:test
 ```
 
-## 📝 Lisans
 
-MIT License
-
-## 👤 Geliştirici
-
-Yiğit Üçün
 
