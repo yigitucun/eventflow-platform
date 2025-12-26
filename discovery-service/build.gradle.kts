@@ -6,7 +6,7 @@ plugins {
 
 group = "io.yigitucun.eventflow"
 version = "0.0.1-SNAPSHOT"
-description = "Config Service"
+description = "Discovery Service"
 
 java {
 	toolchain {
