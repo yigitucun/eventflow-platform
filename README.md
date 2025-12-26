@@ -1,6 +1,6 @@
 # EventFlow Platform
 
-Modern bir etkinlik yönetimi ve bilet satış platformu. Mikroservis mimarisi ile geliştirilmiştir.
+Modern bir etkinlik yönetimi ve bilet satış platformu.
 
 ## 🏗️ Mimari
 
