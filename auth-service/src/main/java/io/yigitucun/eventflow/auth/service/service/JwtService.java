@@ -27,7 +27,7 @@ public class JwtService {
         return JWT.create()
                 .withIssuer("Event-Flow")
                 .withSubject(userAuth.getUsername())
-                .withClaim("id",userAuth.getId())
+                .withClaim("id",String.valueOf(userAuth.getId()))
                 .withIssuedAt(new Date())
                 .withExpiresAt(new Date(System.currentTimeMillis() + appConfig.getAccessTokenExpiration()))
                 .sign(algorithm);
