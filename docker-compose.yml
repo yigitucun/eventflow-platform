@@ -56,10 +56,25 @@ services:
       - POSTGRES_PASSWORD=root
 
     volumes:
-      - pgdata:/var/lib/postgresql
+      - pg_data_user:/var/lib/postgresql
 
     networks:
       - microservice-net
+
+  event-service-db:
+    container_name: event-service-db
+    image: postgres
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=event
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - pg_data_event:/var/lib/postgresql
+    networks:
+      - microservice-net
+
 
   auth-service-db:
     container_name: auth-service-db
@@ -80,9 +95,66 @@ services:
     networks:
       - microservice-net
 
+  event-service:
+    build: ./event-service
+    depends_on:
+      config-service:
+        condition: service_healthy
+      event-service-db:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+    container_name: event-service
+    ports:
+      - "8083:8083"
+    networks:
+      - microservice-net
+
+  ticket-service:
+    build: ./ticket-service
+    depends_on:
+      config-service:
+        condition: service_healthy
+      ticket-service-db:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+    container_name: ticket-service
+    ports:
+      - "8084:8084"
+    networks:
+      - microservice-net
+
+  ticket-service-db:
+    container_name: ticket-service-db
+    image: postgres
+    ports:
+      - "5435:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=ticket
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - pg_data_ticket:/var/lib/postgresql
+    networks:
+      - microservice-net
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: "rabbitmq:3-management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    networks:
+      - microservice-net
 
 networks:
   microservice-net:
 
 volumes:
-  pgdata:
+  pg_data_user:
+  pg_data_ticket:
+  pg_data_event:
