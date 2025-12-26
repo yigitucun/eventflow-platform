@@ -3,7 +3,7 @@ package io.yigitucun.eventflow.auth.service.service;
 import io.yigitucun.eventflow.auth.service.client.UserClientService;
 import io.yigitucun.eventflow.auth.service.dto.User;
 import io.yigitucun.eventflow.auth.service.dto.client.responses.UserAuth;
-import io.yigitucun.eventflow.exceptions.GlobalException;
+import io.yigitucun.eventflow.exception.GlobalException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -5,7 +5,7 @@ import io.yigitucun.eventflow.auth.service.dto.client.responses.UserAuth;
 import io.yigitucun.eventflow.auth.service.dto.requests.AuthRequest;
 import io.yigitucun.eventflow.auth.service.dto.requests.TokenRefreshRequest;
 import io.yigitucun.eventflow.auth.service.dto.responses.TokenResponse;
-import io.yigitucun.eventflow.exceptions.GlobalException;
+import io.yigitucun.eventflow.exception.GlobalException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
