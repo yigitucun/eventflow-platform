@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: ticket-service
+  config:
+    import: configserver:http://config-service:8888
+server:
+  port: 8084
